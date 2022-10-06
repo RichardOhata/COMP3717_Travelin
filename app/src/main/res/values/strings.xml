@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Travelin</string>
+    <string name="sign_in_btn">Sign in</string>
 </resources>
