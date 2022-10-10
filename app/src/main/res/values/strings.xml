@@ -1,4 +1,23 @@
 <resources>
     <string name="app_name">Travelin</string>
     <string name="sign_in_btn">Sign in</string>
+    <!-- Flight Input -->
+    <string name="enter_flight">Enter your flight</string>
+    <string name="enter_curr_location">Enter current location:</string>
+    <string name="enter_destination">Enter destination:</string>
+    <string name="airline_spinner_prompt">Select Airline</string>
+    <string-array name="sample_airlines">
+        <item>Air Canada</item>
+        <item>WestJet</item>
+        <item>American Airlines</item>
+    </string-array>
+    <string name="submit_btn">Submit</string>
+    <!-- Flight Details -->
+    <string name="placeHolder_txt">Vancouver to New York</string>
+    <string name="more_details_btn">more</string>
+    <!-- Flight Fragment1 Details -->
+    <string name="placeHolder_time">Scheduled Departure: 9:10 pm</string>
+    <!-- Flight Fragment2 Details -->
+    <string name="placeHolder_details">Estimated Price Cost: $134</string>
+
 </resources>
