@@ -11,11 +11,13 @@ public class FlightInput extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         setContentView(R.layout.activity_flight_input);
 
         Button submitBtn = findViewById(R.id.submitBtn);
         submitBtn.setOnClickListener(view -> {
-            Intent intent = new Intent(this, FlightDetails.class);
+            Intent intent = new Intent(this, LandingPage.class);
             startActivity(intent);
         });
     }
