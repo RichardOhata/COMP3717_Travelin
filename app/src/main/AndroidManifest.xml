@@ -14,11 +14,20 @@
         android:theme="@style/Theme.Travelin"
         tools:targetApi="31">
         <activity
-            android:name=".FlightDetails"
+            android:name=".WeatherDetails"
             android:exported="false" />
         <activity
+            android:name=".LandingPage"
+            android:exported="false"
+            android:parentActivityName=".FlightInput" />
+        <activity
+            android:name=".FlightDetails"
+            android:exported="false"
+            android:parentActivityName=".LandingPage" />
+        <activity
             android:name=".FlightInput"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

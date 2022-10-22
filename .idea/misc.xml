@@ -3,11 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/richa/AndroidStudioProjects/Travelin/app/src/main/res/layout/activity_flight_details.xml" value="0.176" />
-        <entry key="..\:/Users/richa/AndroidStudioProjects/Travelin/app/src/main/res/layout/activity_flight_input.xml" value="0.264" />
-        <entry key="..\:/Users/richa/AndroidStudioProjects/Travelin/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Users/richa/AndroidStudioProjects/Travelin/app/src/main/res/layout/fragment_flight_details.xml" value="0.2" />
-        <entry key="..\:/Users/richa/AndroidStudioProjects/Travelin/app/src/main/res/layout/fragment_flight_details_fragmnt2.xml" value="0.25" />
+        <entry key="..\:/Users/Mai Phuong/AndroidStudioProjects/COMP3717_Travelin/app/src/main/res/layout/activity_flight_details.xml" value="0.22780797101449277" />
+        <entry key="..\:/Users/Mai Phuong/AndroidStudioProjects/COMP3717_Travelin/app/src/main/res/layout/activity_flight_input.xml" value="0.22780797101449277" />
+        <entry key="..\:/Users/Mai Phuong/AndroidStudioProjects/COMP3717_Travelin/app/src/main/res/layout/activity_landing_page.xml" value="0.2828125" />
+        <entry key="..\:/Users/Mai Phuong/AndroidStudioProjects/COMP3717_Travelin/app/src/main/res/layout/activity_main.xml" value="0.3" />
+        <entry key="..\:/Users/Mai Phuong/AndroidStudioProjects/COMP3717_Travelin/app/src/main/res/layout/activity_weather_details.xml" value="0.278125" />
+        <entry key="..\:/Users/Mai Phuong/AndroidStudioProjects/COMP3717_Travelin/app/src/main/res/layout/fragment_flight_details.xml" value="0.22780797101449277" />
+        <entry key="..\:/Users/Mai Phuong/AndroidStudioProjects/COMP3717_Travelin/app/src/main/res/layout/fragment_flight_details_fragmnt2.xml" value="0.22780797101449277" />
+        <entry key="..\:/Users/Mai Phuong/AndroidStudioProjects/COMP3717_Travelin/app/src/main/res/layout/fragment_weather_forecast.xml" value="0.3484375" />
+        <entry key="..\:/Users/Mai Phuong/AndroidStudioProjects/COMP3717_Travelin/app/src/main/res/layout/fragment_weather_summary.xml" value="0.3484375" />
+        <entry key="..\:/Users/Mai Phuong/AndroidStudioProjects/COMP3717_Travelin/app/src/main/res/layout/my_row_layout.xml" value="0.3614583333333333" />
       </map>
     </option>
   </component>

@@ -19,5 +19,34 @@
     <string name="placeHolder_time">Scheduled Departure: 9:10 pm</string>
     <!-- Flight Fragment2 Details -->
     <string name="placeHolder_details">Estimated Price Cost: $134</string>
-
+    <string-array name="listOfFlightsName">
+        <item>New York</item>
+        <item>Toronto</item>
+        <item>Ontario</item>
+    </string-array>
+    <string name="checkFlights">Check Flights</string>
+    <string name="checkWeather">Check Weather</string>
+    <string name="seeMore">See More</string>
+    <string name="heyThere">Hey There!</string>
+    <string name="todo">TODO</string>
+    <string-array name="daysOfWeek">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+        <item>Sunday</item>
+    </string-array>
+    <string-array name="temperature">
+        <item>12 degree Celsius</item>
+        <item>13 degree Celsius</item>
+        <item>14 degree Celsius</item>
+        <item>15 degree Celsius</item>
+        <item>16 degree Celsius</item>
+        <item>17 degree Celsius</item>
+        <item>18 degree Celsius</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
