@@ -10,14 +10,16 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="192dp"
-        android:layout_height="73dp"
+        android:layout_width="264dp"
+        android:layout_height="123dp"
+        android:gravity="center"
         android:text="@string/placeHolder_time"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.214" />
+        app:layout_constraintVertical_bias="0.376" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,15 +8,17 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.widget.Button;
 
+import java.util.concurrent.atomic.AtomicBoolean;
+
 public class FlightDetails extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flight_details);
-
+        AtomicBoolean isFragment1 = new AtomicBoolean(true);
         Fragment flightDetails1 = new FlightDetailsFragment();
-        Fragment flightDetails2 = new FlightDetailsFragmnt2();
+        Fragment flightDetails2 = new FlightDetailsFragment2();
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.flightDetailsFragmentContainerView, flightDetails1);
@@ -24,9 +26,18 @@ public class FlightDetails extends AppCompatActivity {
 
         Button btnFirst = findViewById(R.id.more_details_btn);
         btnFirst.setOnClickListener(view -> {
-            FragmentTransaction fragmentTransaction1 = fragmentManager.beginTransaction();
-            fragmentTransaction1.replace(R.id.flightDetailsFragmentContainerView, flightDetails2);
-            fragmentTransaction1.commit();
+            if (isFragment1.get()) {
+                FragmentTransaction fragmentTransaction1 = fragmentManager.beginTransaction();
+                fragmentTransaction1.replace(R.id.flightDetailsFragmentContainerView, flightDetails2);
+                fragmentTransaction1.commit();
+               isFragment1.set(false);
+            } else {
+                FragmentTransaction fragmentTransaction2 = fragmentManager.beginTransaction();
+                fragmentTransaction2.replace(R.id.flightDetailsFragmentContainerView, flightDetails1);
+                fragmentTransaction2.commit();
+                isFragment1.set(true);
+            }
+
         });
 
 
