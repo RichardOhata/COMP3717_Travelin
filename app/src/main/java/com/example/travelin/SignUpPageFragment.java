@@ -76,14 +76,21 @@ public class SignUpPageFragment extends Fragment {
 
         sign_up_btn.setOnClickListener(btn -> {
             if (checkFields(view)) {
-                // Sign up user
+                // Signs up user
+                ((LoginPage) requireActivity()).addUser(usernameInput.getText().toString(), emailInput.getText().toString(), passwordInput.getText().toString());
             }
         });
 
         // Inflate the layout for this fragment
         return view;
     }
-
+    /**
+     * Checks EditText fields to see if they are all filled.
+     *
+     * @param view view
+     * @return true if fields are all filled
+     *          else stay on SignUpPageFragment
+     */
     public boolean checkFields(View view) {
         usernameInput = view.findViewById(R.id.signup_username_editText);
         emailInput = view.findViewById(R.id.signup_email_editText);

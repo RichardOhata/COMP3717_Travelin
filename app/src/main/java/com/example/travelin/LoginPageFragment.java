@@ -82,8 +82,8 @@ public class LoginPageFragment extends Fragment {
 
         login_in_btn.setOnClickListener(btn -> {
             if (checkFields(view)) {
-                // Log in user
-                ((LoginPage) requireActivity()).switchActivity();
+                // Logs in user
+                ((LoginPage) requireActivity()).login(usernameInput.getText().toString(), passwordInput.getText().toString());
             }
         });
 
@@ -91,6 +91,13 @@ public class LoginPageFragment extends Fragment {
         return view;
     }
 
+    /**
+     * Checks EditText fields to see if they are all filled.
+     *
+     * @param view view
+     * @return true if fields are all filled
+     *          else stay on LoginPageFragment
+     */
     public boolean checkFields(View view) {
         usernameInput = view.findViewById(R.id.login_username_editText);
         passwordInput = view.findViewById(R.id.login_password_editText);
