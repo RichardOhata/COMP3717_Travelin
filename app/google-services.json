@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "897849823228",
+    "firebase_url": "https://travelin-8bef4-default-rtdb.firebaseio.com",
+    "project_id": "travelin-8bef4",
+    "storage_bucket": "travelin-8bef4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:897849823228:android:5b8e756c206c91cb296c79",
+        "android_client_info": {
+          "package_name": "com.example.travelin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "897849823228-hq1dc4dotiff0t3c7mu0vk0v2q28gulu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWi-3XcIOY8LgbIFxLX-ulsG2J9t-Z544"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "897849823228-hq1dc4dotiff0t3c7mu0vk0v2q28gulu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
