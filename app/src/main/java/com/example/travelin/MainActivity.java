@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Button signInBtn = findViewById(R.id.sign_in_btn);
         signInBtn.setOnClickListener(view -> {
-            Intent intent = new Intent(this, FlightInput.class);
+            Intent intent = new Intent(this, LoginPage.class);
             startActivity(intent);
         });
     }
