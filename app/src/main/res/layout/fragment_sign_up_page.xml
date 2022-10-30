@@ -27,7 +27,7 @@
 
         <TextView
             android:id="@+id/already_have_an_account_textView"
-            android:layout_width="150dp"
+            android:layout_width="135dp"
             android:layout_height="48dp"
             android:gravity="center"
             android:text="@string/already_have_an_account"
@@ -45,9 +45,9 @@
             android:layout_width="69dp"
             android:layout_height="48dp"
             android:clickable="true"
-            android:gravity="center"
+            android:gravity="start|center"
             android:text="@string/login_text_btn"
-            android:textColor="@color/dark_grey"
+            android:textColor="@color/purple_700"
             android:textSize="17sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -76,7 +76,31 @@
             app:layout_constraintHorizontal_bias="0.457"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.253" />
+            app:layout_constraintVertical_bias="0.253"
+            tools:ignore="TextContrastCheck,TextContrastCheck" />
+
+        <EditText
+            android:id="@+id/signup_email_editText"
+            android:layout_width="280dp"
+            android:layout_height="58dp"
+            android:autofillHints=""
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/custom_email_icon"
+            android:drawablePadding="12dp"
+            android:ems="10"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:textColorHint="#757575"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.458"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.378"
+            tools:ignore="TextContrastCheck,TextContrastCheck" />
 
         <EditText
             android:id="@+id/signup_password_editText"
@@ -98,10 +122,11 @@
             app:layout_constraintHorizontal_bias="0.458"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.378" />
+            app:layout_constraintVertical_bias="0.499"
+            tools:ignore="TextContrastCheck,TextContrastCheck" />
 
         <Button
-            android:id="@+id/login_page_login_button"
+            android:id="@+id/signup_page_signup_button"
             android:layout_width="280dp"
             android:layout_height="58dp"
             android:text="@string/sign_up"
@@ -110,7 +135,7 @@
             app:layout_constraintHorizontal_bias="0.458"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/signup_password_editText"
-            app:layout_constraintVertical_bias="0.172"
+            app:layout_constraintVertical_bias="0.093"
             tools:ignore="DuplicateSpeakableTextCheck" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

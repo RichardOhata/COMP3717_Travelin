@@ -5,10 +5,14 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -20,6 +24,10 @@ import java.util.Objects;
  * create an instance of this fragment.
  */
 public class LoginPageFragment extends Fragment {
+
+    TextView sign_in_btn;
+    Button login_in_btn;
+    EditText usernameInput, passwordInput;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -66,13 +74,35 @@ public class LoginPageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_login_page, container, false);
-        TextView sign_in_btn = view.findViewById(R.id.sign_up_text_btn_textView);
-        sign_in_btn.setOnClickListener(btn -> {
-            ((LoginPage) requireActivity()).switchFragments(true);
+
+        sign_in_btn = view.findViewById(R.id.sign_up_text_btn_textView);
+        login_in_btn = view.findViewById(R.id.login_page_login_button);
+
+        sign_in_btn.setOnClickListener(btn -> ((LoginPage) requireActivity()).switchFragments(true));
+
+        login_in_btn.setOnClickListener(btn -> {
+            if (checkFields(view)) {
+                // Log in user
+                ((LoginPage) requireActivity()).switchActivity();
+            }
         });
 
         // Inflate the layout for this fragment
         return view;
     }
 
+    public boolean checkFields(View view) {
+        usernameInput = view.findViewById(R.id.login_username_editText);
+        passwordInput = view.findViewById(R.id.login_password_editText);
+
+        if (TextUtils.isEmpty(usernameInput.getText().toString())) {
+            Toast.makeText(getActivity(), "Please enter a username", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        else if (TextUtils.isEmpty(passwordInput.getText().toString())) {
+            Toast.makeText(getActivity(), "Please enter a password", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        return true;
+    }
 }
