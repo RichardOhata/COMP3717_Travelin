@@ -23,7 +23,8 @@
         <activity
             android:name=".WeatherDetails"
             android:exported="false"
-            android:parentActivityName=".LandingPage" />
+            android:parentActivityName=".LandingPage"
+             />
         <activity
             android:name=".LandingPage"
             android:exported="false"
@@ -31,7 +32,8 @@
         <activity
             android:name=".FlightDetails"
             android:exported="false"
-            android:parentActivityName=".LandingPage" />
+            android:parentActivityName=".LandingPage"
+             />
         <activity
             android:name=".FlightInput"
             android:exported="false"
