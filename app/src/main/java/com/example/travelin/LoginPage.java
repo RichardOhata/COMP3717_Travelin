@@ -21,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 public class LoginPage extends AppCompatActivity {
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
-
+    private Bundle bundle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +29,7 @@ public class LoginPage extends AppCompatActivity {
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
+        bundle = new Bundle();
     }
 
     /**
@@ -55,7 +56,8 @@ public class LoginPage extends AppCompatActivity {
      * Switches to FlightInput Activity.
      */
     public void switchActivity() {
-        Intent intent = new Intent(this, FlightInput.class);
+        Intent intent = new Intent(this, LandingPage.class);
+        intent.putExtra("Bundle", bundle);
         startActivity(intent);
     }
 
@@ -113,6 +115,7 @@ public class LoginPage extends AppCompatActivity {
                     if (username.equals(user.getUsername()) && password.equals(user.getPassword())) {
                         match = true;
                         Toast.makeText(LoginPage.this, "Logged in", Toast.LENGTH_LONG).show();
+                        bundle.putString("Username", user.getUsername());
                         switchActivity();
                     }
                 }

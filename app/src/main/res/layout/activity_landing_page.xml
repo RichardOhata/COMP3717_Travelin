@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="20dp"
-    android:layout_marginTop="30dp"
-    android:layout_marginRight="20dp"
-    android:layout_marginBottom="30dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<TableLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="20dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginBottom="20dp"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".LandingPage">
+    tools:context=".LandingPage"
+    >
 
     <TableRow
         android:layout_width="wrap_content"
@@ -49,7 +53,8 @@
                 android:layout_height="90dp"
                 android:contentDescription="@string/todo"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_launcher_background" />
+                android:src="@drawable/ic_launcher_background"
+                tools:ignore="ImageContrastCheck,ImageContrastCheck" />
 
             <TextView
                 android:id="@+id/checkFlights"
@@ -72,7 +77,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_marginEnd="5dp"
-                    android:text="@string/seeMore" />
+                    android:text="@string/seeMore"
+                    tools:ignore="DuplicateSpeakableTextCheck,DuplicateSpeakableTextCheck,DuplicateSpeakableTextCheck" />
             </RelativeLayout>
 
 
@@ -80,14 +86,14 @@
 
     </androidx.cardview.widget.CardView>
 
-    <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    <androidx.cardview.widget.CardView
         android:id="@+id/card_view2"
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:layout_gravity="center"
         app:cardBackgroundColor="@color/white"
         app:cardElevation="500dp"
-        card_view:cardCornerRadius="50dp">
+        app:cardCornerRadius="50dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -99,7 +105,8 @@
                 android:layout_height="90dp"
                 android:contentDescription="@string/todo"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_launcher_background" />
+                android:src="@drawable/ic_launcher_background"
+                tools:ignore="ImageContrastCheck,ImageContrastCheck" />
 
             <TextView
                 android:id="@+id/checkWeather"
@@ -131,3 +138,4 @@
     </androidx.cardview.widget.CardView>
 
 </TableLayout>
+</ScrollView>
