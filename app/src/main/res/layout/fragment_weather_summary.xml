@@ -32,7 +32,7 @@
                 android:src="@drawable/ic_launcher_background" />
 
             <TextView
-                android:id="@+id/checkFlights"
+                android:id="@+id/checkWeatherSummary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
