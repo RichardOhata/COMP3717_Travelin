@@ -31,7 +31,6 @@ public class WeatherForecastFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_weather_forecast, container, false);
         recyclerView = view.findViewById(R.id.recyclerViewWeatherForecast);
         daysOfWeek = getResources().getStringArray(R.array.daysOfWeek);
-        System.out.println("++++++++++++++++++++++++" + daysOfWeek[0]);
         temp = getResources().getStringArray(R.array.temperature);
 
         MyRecyclerViewAdapter myRecyclerViewAdapter = new MyRecyclerViewAdapter(getActivity(), daysOfWeek, temp);
