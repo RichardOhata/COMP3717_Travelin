@@ -7,6 +7,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import java.text.DecimalFormat;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +17,8 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class WeatherSummaryFragment extends Fragment {
+    TextView weatherSummary;
+    DecimalFormat df = new DecimalFormat("#.##");
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -58,6 +63,10 @@ public class WeatherSummaryFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+//        Bundle bundle = this.getArguments();
+//        Double windSpeed = bundle.getDouble("windSpeed");
+//        weatherSummary = (TextView) getView().findViewById(R.id.checkWeatherSummary);
+//        weatherSummary.setText("Wind Speed: " + df.format(windSpeed));
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_weather_summary, container, false);
     }
