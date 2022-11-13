@@ -16,46 +16,37 @@
         android:textColor="@color/black"
         android:textSize="40sp" />
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="293dp"
-        android:layout_height="48dp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="50dp"
-        android:entries="@array/sample_airlines"
-        android:prompt="@string/airline_spinner_prompt" />
-
     <EditText
-        android:id="@+id/editTextCurrentLocation"
+        android:id="@+id/flight_num_editText"
         android:layout_width="344dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:autofillHints=""
         android:layout_marginBottom="50dp"
         android:ems="10"
-        android:hint="@string/enter_curr_location"
+        android:hint="@string/enter_flight_num"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:textColorHint="#757575" />
+        android:textColorHint="#757575"
+        android:importantForAutofill="no" />
 
     <EditText
-        android:id="@+id/editTextDestination"
+        android:id="@+id/airline_name_editText"
         android:layout_width="344dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:autofillHints=""
         android:ems="10"
-        android:hint="@string/enter_destination"
+        android:hint="@string/enter_airline_name"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:textColorHint="#757575" />
+        android:textColorHint="#757575"
+        android:importantForAutofill="no" />
 
     <Button
         android:id="@+id/submitBtn"
         android:layout_width="138dp"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="25dp"
         android:text="@string/submit_btn" />
 

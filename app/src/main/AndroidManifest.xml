@@ -33,7 +33,7 @@
         <activity
             android:name=".LandingPage"
             android:exported="false"
-            android:parentActivityName=".FlightInput" />
+            android:parentActivityName=".LoginPage" />
         <activity
             android:name=".FlightDetails"
             android:exported="false"
@@ -42,7 +42,7 @@
         <activity
             android:name=".FlightInput"
             android:exported="false"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".LandingPage" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

@@ -3,9 +3,8 @@
     <string name="sign_in_btn">Sign in</string>
     <!-- Flight Input -->
     <string name="enter_flight">Enter your flight</string>
-    <string name="enter_curr_location">Enter current location:</string>
-    <string name="enter_destination">Enter destination:</string>
-    <string name="airline_spinner_prompt">Select Airline</string>
+    <string name="enter_flight_num">Enter Flight Number</string>
+    <string name="enter_airline_name">Enter Airline Name</string>
     <string-array name="sample_airlines">
         <item>Air Canada</item>
         <item>WestJet</item>
@@ -26,6 +25,7 @@
     </string-array>
     <string name="checkFlights">Check Flights</string>
     <string name="checkWeather">Check Weather</string>
+    <string name="inputFlight">Input Flight</string>
     <string name="seeMore">See More</string>
     <string name="heyThere">Hey There!</string>
     <string name="todo">TODO</string>
