@@ -11,13 +11,7 @@
         <item>American Airlines</item>
     </string-array>
     <string name="submit_btn">Submit</string>
-    <!-- Flight Details -->
-    <string name="placeHolder_txt">Vancouver to New York</string>
-    <string name="more_details_btn">more</string>
-    <!-- Flight Fragment1 Details -->
-    <string name="placeHolder_time">Scheduled Departure: 9:10 pm</string>
-    <!-- Flight Fragment2 Details -->
-    <string name="placeHolder_details">Estimated Price Cost: $134</string>
+
     <string-array name="listOfFlightsName">
         <item>New York</item>
         <item>Toronto</item>
@@ -62,4 +56,8 @@
     <string name="already_have_an_account">Already a user?</string>
     <string name="login_text_btn"><u>LOG IN</u></string>
     <string name="email">Email</string>
+
+    <!--Flight Details Fragment-->
+    <string name="placeholder_title">Vancouver to New York</string>
+    <string name="placeholder_date">2022-11-13</string>
 </resources>

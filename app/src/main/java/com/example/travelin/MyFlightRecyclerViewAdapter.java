@@ -13,6 +13,7 @@ public class MyFlightRecyclerViewAdapter extends RecyclerView.Adapter<MyFlightRe
 
     Context c;
     Flight[] flights;
+    private FlightItemClickListener clickListener;
 
     public MyFlightRecyclerViewAdapter(Context c, Flight[] flights) {
         this.c = c;
@@ -30,7 +31,6 @@ public class MyFlightRecyclerViewAdapter extends RecyclerView.Adapter<MyFlightRe
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.text1.setText(flights[position].get_airline_name());
-        System.out.println(flights[1].get_airline_name());
     }
 
     @Override
@@ -38,12 +38,22 @@ public class MyFlightRecyclerViewAdapter extends RecyclerView.Adapter<MyFlightRe
         return flights.length;
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public void setClickListener(FlightItemClickListener flightItemClickListener){
+        this.clickListener = flightItemClickListener;
+    }
+
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         TextView text1;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             text1 = itemView.findViewById(R.id.flight_name);
+            itemView.setOnClickListener(this);
+        }
+
+
+        public void onClick(View itemView) {
+            if (clickListener != null) clickListener.onClick(itemView, getAdapterPosition());
         }
     }
 }
