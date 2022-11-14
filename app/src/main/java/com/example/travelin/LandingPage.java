@@ -26,6 +26,7 @@ Bundle bundle;
         displayUserGreeting();
         checkFlights.setOnClickListener(view -> {
             Intent intent = new Intent(this, FlightDetails.class);
+            intent.putExtra("Bundle", bundle);
             startActivity(intent);
         });
         checkWeather.setOnClickListener(view -> {

@@ -6,40 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".FlightDetails">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="352dp"
-        android:layout_height="97dp"
-        android:gravity="center"
-        android:text="@string/placeHolder_txt"
-        android:textColor="@color/black"
-        android:textSize="35sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.069" />
-
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/flightDetailsFragmentContainerView"
-        android:name="com.example.travelin.FlightDetailsFragment"
-        android:layout_width="343dp"
-        android:layout_height="390dp"
+        android:id="@+id/ctnFragment"
+        android:layout_width="412dp"
+        android:layout_height="720dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        tools:layout="@layout/fragment_flight_details" />
-
-    <Button
-        android:id="@+id/more_details_btn"
-        android:layout_width="115dp"
-        android:layout_height="63dp"
-        android:text="@string/more_details_btn"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.868"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.941" />
+        app:layout_constraintVertical_bias="0.454" />
 </androidx.constraintlayout.widget.ConstraintLayout>
