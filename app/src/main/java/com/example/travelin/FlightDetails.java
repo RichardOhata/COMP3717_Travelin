@@ -65,9 +65,11 @@ public class FlightDetails extends AppCompatActivity {
                 Fragment gallery = new FlightDetailsGalleryFragment();
                 gallery.setArguments(fragmentBundle);
                 FragmentManager fragmentManager = getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.ctnFragment, gallery);
-                fragmentTransaction.commit();
+                if (!fragmentManager.isDestroyed()) {
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.ctnFragment, gallery);
+                    fragmentTransaction.commit();
+                }
             }
 
             @Override
