@@ -40,7 +40,7 @@
         android:layout_gravity="center"
         android:layout_marginBottom="10dp"
         app:cardBackgroundColor="@color/white"
-        app:cardCornerRadius="50dp"
+        app:cardCornerRadius="20dp"
         app:cardElevation="500dp">
 
         <LinearLayout
@@ -53,7 +53,7 @@
                 android:layout_height="90dp"
                 android:contentDescription="@string/todo"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_launcher_background"
+                android:src="@drawable/flights_banner"
                 tools:ignore="ImageContrastCheck,ImageContrastCheck" />
 
             <TextView
@@ -69,7 +69,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="70dp"
-                android:layout_marginEnd="20dp">
+                android:layout_marginEnd="5dp">
 
                 <Button
                     android:id="@+id/flightsSeeMoreBtn"
@@ -93,7 +93,7 @@
         android:layout_gravity="center"
         app:cardBackgroundColor="@color/white"
         app:cardElevation="500dp"
-        app:cardCornerRadius="50dp"
+        app:cardCornerRadius="20dp"
         android:layout_marginBottom="10dp">
 
         <LinearLayout
@@ -106,7 +106,7 @@
                 android:layout_height="90dp"
                 android:contentDescription="@string/todo"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_launcher_background"
+                android:src="@drawable/weather_banner"
                 tools:ignore="ImageContrastCheck,ImageContrastCheck" />
 
             <TextView
@@ -121,19 +121,31 @@
             <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="70dp"
-                android:layout_marginEnd="20dp">
-
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="5dp">
                 <Button
-                    android:id="@+id/weatherSeeMoreBtn"
+                    android:id="@+id/weatherCurrentBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="3dp"
                     android:layout_marginEnd="5dp"
-                    android:text="@string/seeMore" />
+                    android:layout_alignParentEnd="true"
+                    android:text="@string/seeCurrentLocationWeather" />
             </RelativeLayout>
 
-
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp">
+                <Button
+                    android:id="@+id/weatherAnywhereBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_alignParentEnd="true"
+                    android:text="@string/checkWeatherFromInput" />
+            </RelativeLayout>
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
@@ -144,7 +156,7 @@
         android:layout_gravity="center"
         app:cardBackgroundColor="@color/white"
         app:cardElevation="500dp"
-        app:cardCornerRadius="50dp">
+        app:cardCornerRadius="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -156,7 +168,7 @@
                 android:layout_height="90dp"
                 android:contentDescription="@string/todo"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_launcher_background"
+                android:src="@drawable/input_fligts_banner"
                 tools:ignore="ImageContrastCheck,ImageContrastCheck" />
 
             <TextView
@@ -172,7 +184,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="70dp"
-                android:layout_marginEnd="20dp">
+                android:layout_marginEnd="5dp">
 
                 <Button
                     android:id="@+id/inputFlight_btn"
