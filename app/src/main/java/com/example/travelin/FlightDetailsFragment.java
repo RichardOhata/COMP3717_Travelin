@@ -119,7 +119,6 @@ public class FlightDetailsFragment extends Fragment {
      * high or low.
      * @param departureDelay delay in the departure of the flight
      * @param arrivalDelay delay in the arrival of the flight
-     * @return number on how high the level of delay is from 0 to 3
      */
     public void calculateDelay(long departureDelay, long arrivalDelay) {
         final int HIGH_DELAY = 60;
