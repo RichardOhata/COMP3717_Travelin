@@ -59,7 +59,4 @@
     <string name="login_text_btn"><u>LOG IN</u></string>
     <string name="email">Email</string>
 
-    <!--Flight Details Fragment-->
-    <string name="placeholder_title">Vancouver to New York</string>
-    <string name="placeholder_date">2022-11-13</string>
 </resources>
