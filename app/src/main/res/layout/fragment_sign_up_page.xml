@@ -47,7 +47,7 @@
             android:clickable="true"
             android:gravity="start|center"
             android:text="@string/login_text_btn"
-            android:textColor="@color/purple_700"
+            android:textColor="@color/travelinColorOnSecondary"
             android:textSize="17sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
