@@ -1,23 +1,14 @@
 package com.example.travelin;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.loader.content.AsyncTaskLoader;
 
-import android.Manifest;
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.GridLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,12 +24,20 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.DecimalFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class WeatherDetails extends AppCompatActivity {
     TextView city;
     TextView weatherTemp;
     TextView weatherCondition;
-//    double windSpeedWeatherSum;
+    EditText enterCity;
+    Button btnGetData;
+    TextView weatherDetails;
+    ImageView weatherIcon;
+    TextView weatherSummary;
+    GridLayout weatherDetailsLayout;
+
     private final String url = "https://api.openweathermap.org/data/2.5/weather";
     private final String appid = "fa211ad253385ab5e5f303af6dfebb44";
     DecimalFormat df = new DecimalFormat("#.##");
@@ -48,60 +47,48 @@ public class WeatherDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather_details);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityResultLauncher<String[]> locationPermissionRequest =
-                    registerForActivityResult(new ActivityResultContracts
-                                    .RequestMultiplePermissions(), result -> {
-                                Boolean fineLocationGranted = result.getOrDefault(
-                                        Manifest.permission.ACCESS_FINE_LOCATION, false);
-                                Boolean coarseLocationGranted = result.getOrDefault(
-                                        Manifest.permission.ACCESS_COARSE_LOCATION,false);
-                                if (fineLocationGranted != null && fineLocationGranted) {
-                                    // Precise location access granted.
-                                } else if (coarseLocationGranted != null && coarseLocationGranted) {
-                                    // Only approximate location access granted.
-                                } else {
-                                    // No location access granted.
-                                }
-                            }
-                    );
-            locationPermissionRequest.launch(new String[] {
-                    Manifest.permission.ACCESS_FINE_LOCATION,
-                    Manifest.permission.ACCESS_COARSE_LOCATION
-            });
-        }
-        Location lastKnownLocation = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
-        double currentLatitude = lastKnownLocation.getLatitude();
-        double currentLongtitude = lastKnownLocation.getLongitude();
-        System.out.println("curLat: " + currentLatitude);
-        System.out.println("curLong: "+ currentLongtitude);
-
-
+        enterCity = findViewById(R.id.enterCityName);
+        btnGetData = findViewById(R.id.btnGetData);
         city = findViewById(R.id.city);
         weatherTemp = findViewById(R.id.weatherTemp);
         weatherCondition = findViewById(R.id.weatherCondition);
-        String tempURL = url + "?lat=" + currentLatitude + "&lon=" + currentLongtitude + "&appid=" + appid;
+        weatherDetails = findViewById(R.id.weatherDetails);
+        weatherIcon = findViewById(R.id.weatherIcon);
+        weatherSummary = findViewById(R.id.checkWeatherSummary);
+        weatherDetailsLayout = (GridLayout) findViewById(R.id.weatherDetailsLayout);
+        Date currentTime = Calendar.getInstance().getTime();
+        if(currentTime.getHours() <= 16){
+            weatherDetailsLayout.setBackgroundResource(R.drawable.morning);
+        } else if (currentTime.getHours() > 16 && currentTime.getHours() < 20) {
+            weatherDetailsLayout.setBackgroundResource(R.drawable.evening);
+            city.setTextColor(Color.parseColor("#FFFFFF"));
+            weatherTemp.setTextColor(Color.parseColor("#FFFFFF"));
+            weatherCondition.setTextColor(Color.parseColor("#FFFFFF"));
+            enterCity.setTextColor(Color.parseColor("#FFFFFF"));
+            enterCity.setHintTextColor(Color.parseColor("#FFFFFF"));
+        } else if (currentTime.getHours() >= 20) {
+            weatherDetailsLayout.setBackgroundResource(R.drawable.night);
+            city.setTextColor(Color.parseColor("#FFFFFF"));
+            weatherTemp.setTextColor(Color.parseColor("#FFFFFF"));
+            weatherCondition.setTextColor(Color.parseColor("#FFFFFF"));
+            enterCity.setTextColor(Color.parseColor("#FFFFFF"));
+            enterCity.setHintTextColor(Color.parseColor("#FFFFFF"));
+        } else {
+            weatherDetailsLayout.setBackgroundResource(R.drawable.morning);
+        }
 
-        AsyncTaskRunner runner = new AsyncTaskRunner();
-        runner.execute(tempURL);
-//
-//        Bundle bundle = new Bundle();
-//        bundle.putDouble("windSpeed", windSpeedWeatherSum);
-//        System.out.println("HOO: " + windSpeedWeatherSum);
-
-        Fragment weatherSummary = new WeatherSummaryFragment();
-//        weatherSummary.setArguments(bundle);
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.weatherSummary, weatherSummary);
-        fragmentTransaction.commit();
-
-        Fragment weatherForecast = new WeatherForecastFragment();
-        FragmentTransaction fragmentTransaction1 = fragmentManager.beginTransaction();
-        fragmentTransaction1.replace(R.id.weatherForecast, weatherForecast);
-        fragmentTransaction1.commit();
+        btnGetData.setOnClickListener(view -> {
+            String tempUrl = "";
+            String cityName = enterCity.getText().toString().trim();
+            if (cityName.equals("")) {
+                Toast.makeText(WeatherDetails.this, "City field can not be empty!", Toast.LENGTH_SHORT).show();
+            } else {
+                tempUrl = url + "?q=" + cityName + "&appid=" + appid;
+            }
+            AsyncTaskRunner runner = new AsyncTaskRunner();
+            runner.execute(tempUrl);
+        });
 
     }
 
@@ -126,10 +113,29 @@ public class WeatherDetails extends AppCompatActivity {
                         JSONObject jsonObjectWeather = weather.getJSONObject(0);
                         String description = jsonObjectWeather.getString("description");
                         weatherCondition.setText(toTitleCase(description));
+                        if (description.toLowerCase().contains("sun")) {
+                            weatherIcon.setImageResource(R.drawable.sun_weather_icon_150657);
+                        } else if (description.toLowerCase().contains("cloud")) {
+                            weatherIcon.setImageResource(R.drawable.cloudy_weather_icon_150660);
+                        } else if (description.toLowerCase().contains("rain")) {
+                            weatherIcon.setImageResource(R.drawable.rain_weather_icon_150662);
+                        } else if (description.toLowerCase().contains("snow")) {
+                            weatherIcon.setImageResource(R.drawable.snowy_weather_icon_150655);
+                        } else {
+                            weatherIcon.setImageResource(R.drawable.sunny_weather_icon_150663);
+                        }
+                        JSONObject jsonObjectWind = response.getJSONObject("wind");
+                        double windSpeed = jsonObjectWind.getDouble("speed");
+                        weatherSummary.setText( howFastIsTheWindBlowing(windSpeed) + "\n" + "Wind Speed: " + windSpeed + "m/s" );
 
-//                        JSONObject jsonObjectWind = response.getJSONObject("wind");
-//                        double windSpeed = jsonObjectWind.getDouble("speed");
-//                        windSpeedWeatherSum = windSpeed;
+                        JSONObject jsonObjectWeatherDetails = response.getJSONObject("main");
+                        double feels_like = jsonObjectWeatherDetails.getDouble("feels_like") - 273.15;
+                        double temp_min = jsonObjectWeatherDetails.getDouble("temp_min") - 273.15;
+                        double temp_max = jsonObjectWeatherDetails.getDouble("temp_max") - 273.15;
+                        double pressure = jsonObjectWeatherDetails.getDouble("pressure");
+                        double humidity = jsonObjectWeatherDetails.getDouble("humidity");
+                        weatherDetails.setText("Feels like: " + df.format(feels_like) + " degree Celsius\n\nMax temperature: " + df.format(temp_max) + " degree Celsius\n\n" +
+                                "Min temperature: " + df.format(temp_min) + " degree Celsius\n\n" + "Pressure: " + pressure + "\n\nHumidity: " + humidity);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -139,9 +145,11 @@ public class WeatherDetails extends AppCompatActivity {
                 public void onErrorResponse(VolleyError error) {
                     Toast.makeText(WeatherDetails.this, error.toString(), Toast.LENGTH_SHORT).show();
                 }
+
             });
             queue.add(request);
             return null;
+
         }
     }
 
@@ -154,5 +162,35 @@ public class WeatherDetails extends AppCompatActivity {
                     .append(arr[i].substring(1)).append(" ");
         }
         return sb.toString().trim();
+    }
+
+    public static String howFastIsTheWindBlowing(double windspeed) {
+        String windDescription = "Wind Speed";
+        if (windspeed < 1.5) {
+            windDescription = "Light Air";
+        } else if (windspeed > 1.5 && windspeed < 3) {
+            windDescription = "Light Breeze";
+        } else if (windspeed > 3 && windspeed < 5) {
+            windDescription = "Gentle breeze";
+        } else if (windspeed > 5 && windspeed < 8) {
+            windDescription = "Moderate breeze";
+        } else if (windspeed > 8 && windspeed < 10.5) {
+            windDescription = "Fresh breeze";
+        } else if (windspeed > 10.5 && windspeed < 13.5) {
+            windDescription = "Strong breeze";
+        } else if (windspeed > 13.5 && windspeed < 16.5) {
+            windDescription = "Moderate gale";
+        } else if (windspeed > 16.5 && windspeed < 20) {
+            windDescription = "Fresh gale";
+        } else if (windspeed > 20 && windspeed < 23.5) {
+            windDescription = "Strong gale";
+        } else if (windspeed > 23.5 && windspeed < 27.5) {
+            windDescription = "Whole gale";
+        } else if (windspeed > 27.5 && windspeed < 31.5) {
+            windDescription = "Storm";
+        } else if (windspeed > 31.5) {
+            windDescription = "Hurricane";
+        }
+        return windDescription;
     }
 }
