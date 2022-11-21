@@ -21,6 +21,8 @@
     <string name="checkWeather">Check Weather</string>
     <string name="inputFlight">Input Flight</string>
     <string name="seeMore">See More</string>
+    <string name="seeCurrentLocationWeather">Current Weather</string>
+    <string name="checkWeatherFromInput">Weather Anywhere</string>
     <string name="heyThere">Hey There!</string>
     <string name="todo">TODO</string>
     <string-array name="daysOfWeek">
