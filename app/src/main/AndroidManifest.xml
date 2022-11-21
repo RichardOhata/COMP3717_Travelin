@@ -19,7 +19,7 @@
         android:theme="@style/Theme.Travelin"
         tools:targetApi="31">
         <activity
-            android:name=".FlightDetailsGalleryFragment"
+            android:name=".WeatherCurrent"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
