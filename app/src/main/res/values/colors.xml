@@ -9,4 +9,12 @@
     <color name="white">#FFFFFFFF</color>
     <color name="dark_grey"> #5A5A5A</color>
     <color name="colorPrimary">#6200EE</color>
+    <color name="travelinColorPrimary">#2ED9C3</color>
+    <color name="travelinColorPrimaryVariant">#081234</color>
+    <color name="travelinColorOnPrimary">#FAEDCD</color>
+
+    <color name="travelinColorSecondary">#E9C46A</color>
+    <color name="travelinColorSecondaryVariant">#FF018786</color>
+    <color name="travelinColorOnSecondary">#E76F51</color>
+    <color name="travelinStatusBarColor">#F4A261</color>
 </resources>
