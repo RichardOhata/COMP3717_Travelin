@@ -127,7 +127,8 @@ public class WeatherCurrent extends AppCompatActivity {
 
                         JSONObject jsonObjectMain = response.getJSONObject("main");
                         double temp = jsonObjectMain.getDouble("temp") - 273.15;
-                        weatherTemp.setText(df.format(temp) + " degree Celsius");
+                        String weatherTempMsg = df.format(temp) + " degree Celsius";
+                        weatherTemp.setText(weatherTempMsg);
 
                         JSONArray weather = response.getJSONArray("weather");
                         JSONObject jsonObjectWeather = weather.getJSONObject(0);
@@ -146,7 +147,8 @@ public class WeatherCurrent extends AppCompatActivity {
                         }
                         JSONObject jsonObjectWind = response.getJSONObject("wind");
                         double windSpeed = jsonObjectWind.getDouble("speed");
-                        weatherSummary.setText( howFastIsTheWindBlowing(windSpeed) + "\n" + "Wind Speed: " + windSpeed + "m/s" );
+                        String windSpeedMsg = howFastIsTheWindBlowing(windSpeed) + "\n" + "Wind Speed: " + windSpeed + "m/s";
+                        weatherSummary.setText(windSpeedMsg);
 
                         JSONObject jsonObjectWeatherDetails = response.getJSONObject("main");
                         double feels_like = jsonObjectWeatherDetails.getDouble("feels_like") - 273.15;
@@ -154,8 +156,9 @@ public class WeatherCurrent extends AppCompatActivity {
                         double temp_max = jsonObjectWeatherDetails.getDouble("temp_max") - 273.15;
                         double pressure = jsonObjectWeatherDetails.getDouble("pressure");
                         double humidity = jsonObjectWeatherDetails.getDouble("humidity");
-                        weatherDetails.setText("Feels like: " + df.format(feels_like) + " degree Celsius\n\nMax temperature: " + df.format(temp_max) + " degree Celsius\n\n" +
-                                "Min temperature: " + df.format(temp_min) + " degree Celsius\n\n" + "Pressure: " + pressure + "\n\nHumidity: " + humidity);
+                        String weatherDetailsMsg = "Feels like: " + df.format(feels_like) + " degree Celsius\n\nMax temperature: " + df.format(temp_max) + " degree Celsius\n\n" +
+                                "Min temperature: " + df.format(temp_min) + " degree Celsius\n\n" + "Pressure: " + pressure + "\n\nHumidity: " + humidity;
+                        weatherDetails.setText(weatherDetailsMsg);
 
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -176,7 +179,7 @@ public class WeatherCurrent extends AppCompatActivity {
 
     public static String toTitleCase(String givenString) {
         String[] arr = givenString.split(" ");
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i < arr.length; i++) {
             sb.append(Character.toUpperCase(arr[i].charAt(0)))
