@@ -9,7 +9,8 @@ import android.widget.TextView;
 
 public class LandingPage extends AppCompatActivity {
 Button checkFlights;
-Button checkWeather;
+Button checkCurrentWeather;
+Button checkAnywhereWeather;
 Button inputFlight;
 TextView userGreeting;
 Bundle bundle;
@@ -20,7 +21,8 @@ Bundle bundle;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         checkFlights = findViewById(R.id.flightsSeeMoreBtn);
-        checkWeather = findViewById(R.id.weatherSeeMoreBtn);
+        checkCurrentWeather = findViewById(R.id.weatherCurrentBtn);
+        checkAnywhereWeather = findViewById(R.id.weatherAnywhereBtn);
         inputFlight = findViewById(R.id.inputFlight_btn);
         userGreeting = findViewById(R.id.heyThere);
         displayUserGreeting();
@@ -29,7 +31,11 @@ Bundle bundle;
             intent.putExtra("Bundle", bundle);
             startActivity(intent);
         });
-        checkWeather.setOnClickListener(view -> {
+        checkCurrentWeather.setOnClickListener(view -> {
+            Intent intent = new Intent(this, WeatherCurrent.class);
+            startActivity(intent);
+        });
+        checkAnywhereWeather.setOnClickListener(view -> {
             Intent intent = new Intent(this, WeatherDetails.class);
             startActivity(intent);
         });
