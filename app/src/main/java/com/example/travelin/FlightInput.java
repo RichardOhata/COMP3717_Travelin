@@ -42,6 +42,7 @@ public class FlightInput extends AppCompatActivity {
         Button submitBtn = findViewById(R.id.submitBtn);
         flightNum = findViewById(R.id.flight_num_editText);
         airline_name = findViewById(R.id.airline_name_editText);
+
         submitBtn.setOnClickListener(view -> {
             String tempURL = url + "=" + appid + "&flight_number=" + flightNum.getText().toString() + "&airline_name=" + airline_name.getText().toString();
             if (!TextUtils.isEmpty(flightNum.getText().toString()) && !TextUtils.isEmpty(airline_name.getText().toString())) {
@@ -53,7 +54,6 @@ public class FlightInput extends AppCompatActivity {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                this.finish();
             } else {
                 Toast.makeText(FlightInput.this, "Enter flight number and airline name", Toast.LENGTH_SHORT).show();
             }
@@ -96,6 +96,7 @@ public class FlightInput extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
+            finish();
         }
     }
 }
