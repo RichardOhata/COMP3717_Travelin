@@ -1,9 +1,11 @@
 package com.example.travelin;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -13,7 +15,8 @@ Button checkCurrentWeather;
 Button checkAnywhereWeather;
 Button inputFlight;
 TextView userGreeting;
-Bundle bundle;
+static Bundle bundle;
+static String username;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,9 +53,19 @@ Bundle bundle;
      * Displays user's username as a greeting message.
      */
     public void displayUserGreeting() {
+        if (username == null) {
         Intent intent = getIntent();
         bundle = intent.getBundleExtra("Bundle");
-        String userGreetingMsg = "Hey There, " + bundle.getString("Username") + "!";
+        username = bundle.getString("Username");
+        }
+        String userGreetingMsg = "Hey There, " + username + "!";
         userGreeting.setText(userGreetingMsg);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        bundle = null;
+        username = null;
+        return super.onOptionsItemSelected(item);
     }
 }
