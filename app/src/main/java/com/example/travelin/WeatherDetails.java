@@ -146,7 +146,7 @@ public class WeatherDetails extends AppCompatActivity {
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(WeatherDetails.this, error.toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(WeatherDetails.this, "Invalid City Name", Toast.LENGTH_SHORT).show();
                 }
 
             });

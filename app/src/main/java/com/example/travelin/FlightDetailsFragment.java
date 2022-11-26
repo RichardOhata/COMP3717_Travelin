@@ -1,7 +1,5 @@
 package com.example.travelin;
 
-import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,31 +9,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.Volley;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.concurrent.ExecutionException;
 
 
 public class FlightDetailsFragment extends Fragment {
-//    private final String url = "https://app.goflightlabs.com/flights?access_key";
-//    private final String appid = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiY2UyNjVlNjAzZTBhYjdkMjEwOWU4MWE1MTU5Y2VkNWNhYTAxZTlkZGRjNDcxNzVmZmE2ODRjOGM0MjQ4NjIzZWViNDYyZDI3ZWUyY2E5N2QiLCJpYXQiOjE2Njc4NDQwMDQsIm5iZiI6MTY2Nzg0NDAwNCwiZXhwIjoxNjk5MzgwMDA0LCJzdWIiOiIxNzMyNCIsInNjb3BlcyI6W119.Si0XteCDaR2RNZExlf3431TDq0L8gwSyppuGVhIDJpi5Lm_YWVimrbVKHGJiDtIcXmaEdteApum3zYFs8X8WIQ";
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
     TextView title, flightDate, flightStatus, flight_Num, airline_Name, delay;
@@ -89,16 +72,6 @@ public class FlightDetailsFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
-        // Get flight information from API
-//        String tempURL = url + "=" + appid + "&flight_number=" + flightNum + "&airline_name=" + airlineName;
-//        AsyncTaskRunner runner = new AsyncTaskRunner();
-//        try {
-//            String str_result = runner.execute(tempURL).get();
-//        } catch (ExecutionException e) {
-//            e.printStackTrace();
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
     }
 
     @Override
@@ -126,7 +99,6 @@ public class FlightDetailsFragment extends Fragment {
         final int MILD_DELAY = 1;
         long totalDelayTime = departureDelay + arrivalDelay;
         String delayMessage;
-        System.out.println("Delay " + departureDelay + "&&" + "Arrival " + arrivalDelay);
         if (totalDelayTime >= HIGH_DELAY) {
             delayMessage = "Risk of Delay: \n\nHIGH";
         } else if (totalDelayTime >= MODERATE_DELAY) {
@@ -138,48 +110,4 @@ public class FlightDetailsFragment extends Fragment {
         }
         delay.setText(delayMessage);
     }
-    /**
-     * Gets the data for the flight through API
-     *
-     */
-//    private class AsyncTaskRunner extends AsyncTask<String, Void, String> {
-//
-//        @Override
-//        protected String doInBackground(String... strings) {
-//            RequestQueue queue = Volley.newRequestQueue(getActivity());
-//            JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, strings[0], null, new Response.Listener<JSONArray>() {
-//
-//                @Override
-//                public void onResponse(JSONArray response) {
-//                    try {
-//                        JSONObject jsonObject = response.getJSONObject(0);
-//                        JSONObject flightDeparture = jsonObject.getJSONObject("departure");
-//                        JSONObject flightArrival = jsonObject.getJSONObject("arrival");
-//                        String departureTimeZone = flightDeparture.getString("scheduled");
-//                        String arrivalTimeZone = flightDeparture.getString("scheduled");
-//
-//
-//                        String date = "Flight Date: " + jsonObject.getString("flight_date");
-//                        flightDate.setText(date);
-//                        String status = "Flight Status: " + jsonObject.getString("flight_status");
-//                        flightStatus.setText(status);
-//                    } catch (JSONException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-//            }, new Response.ErrorListener() {
-//                @Override
-//                public void onErrorResponse(VolleyError error) {
-//
-//                }
-//            });
-//            queue.add(request);
-//            return null;
-//        }
-//
-//        @Override
-//        protected void onPostExecute(String s) {
-//            super.onPostExecute(s);
-//        }
-//    }
 }
