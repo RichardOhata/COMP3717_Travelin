@@ -57,7 +57,7 @@ public class WeatherCurrent extends AppCompatActivity {
         weatherCondition = findViewById(R.id.weatherCondition);
 
         Date currentTime = Calendar.getInstance().getTime();
-        System.out.println("currTime: " + currentTime.getHours());
+
         if(currentTime.getHours() <= 16){
             currentWeatherLayout.setBackgroundResource(R.drawable.morning);
         } else if (currentTime.getHours() > 16 && currentTime.getHours() < 20) {
